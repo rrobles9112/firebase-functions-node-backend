@@ -1,0 +1,3 @@
+GET http://localhost:5000/eshop-back/us-central1/eshop/products HTTP/1.1
+Accept: '*/*'
+Cache-Control: no-cache
