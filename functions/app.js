@@ -58,7 +58,7 @@ const authenticate = async (req, res, next) => {
 
 app.use(cors({origin:true}));
 app.use(express.json())
-app.use(methodOverride())
+// app.use(methodOverride())
 
 app.get('/',  async (req, res) => {
     const message = req.body.message;
