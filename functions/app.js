@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 
 const admin = require('firebase-admin');
 const firebase = require('firebase');
-var config = {
+const config = {
     apiKey: "AIzaSyCkKPmsGxC2ihS-4g0C1qksrYgtqsgsjuc",
     authDomain: "eshop-back.firebaseapp.com",
     databaseURL: "https://eshop-back.firebaseio.com",
@@ -15,7 +15,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var serviceAccount = require("./credential/eshop-back-firebase-adminsdk-78ctw-f1b88acc77");
+const serviceAccount = require("./credential/eshop-back-firebase-adminsdk-78ctw-a1be8c4d3b");
 
 admin.initializeApp({
 
@@ -38,13 +38,14 @@ const authenticate = async (req, res, next) => {
     
 
     if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
+
       res.status(403).send('Unauthorized');
       return;
     }
     const idToken = req.headers.authorization.split('Bearer ')[1];
     console.log('idToken=',idToken);
     try {
-      const decodedIdToken = await admin.auth().verifyIdToken(idToken);
+      let decodedIdToken = await admin.auth().verifyIdToken(idToken);
       req.user = decodedIdToken;
       next();
       return;
@@ -102,9 +103,11 @@ app.post('/logout',  (req, res) => {
 });
 
 app.get('/products', authenticate, async (req, res) => {
+
     let apiResponse = [];
     let item = {};
     const citiesRef = getFirestore.collection('products');
+
     const allCities = citiesRef.get()
         .then(snapshot => {
 

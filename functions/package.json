@@ -10,17 +10,17 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "firebase-admin": "~6.0.0",
-    "firebase": "~5.5.4",
-    "firebase-functions": "~2.0.3",
+    "firebase-admin": "~6.1.0",
+    "firebase": "~5.5.8",
+    "firebase-functions": "~2.1.0",
     "express": "~4.16.3",
     "method-override": "~3.0.0",
     "cors": "~2.8.4"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^4.12.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "babel-eslint": "^10.0.1"
+    "eslint-plugin-promise": "^3.6.0"
   },
   "engines": {
     "node": "8"
