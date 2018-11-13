@@ -51,7 +51,7 @@ const authenticate = async (req, res, next) => {
     } catch(e) {
       res.status(403).send('Unauthorized');
       return;
-    }
+    }  
   };
   
 
